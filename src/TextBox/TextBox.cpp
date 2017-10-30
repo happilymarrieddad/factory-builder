@@ -1,10 +1,12 @@
 #include "TextBox.hpp"
 
 TextBox::TextBox() {
-
+	_setDefaults();
 }
 
 TextBox::TextBox(const String text,const GLint x = 0,const GLint y = 0,const GLint w = 100,const GLint h = 50,const SDL_Color color = BLACK,const SDL_Color fontColor = WHITE,const String fontPath = DEFAULT_FONT_PATH) {
+	_setDefaults();
+
 	setWidth(w);
 	setHeight(h);
 	setPosition(x,y);
@@ -36,7 +38,7 @@ void TextBox::_free() {
 }
 
 void TextBox::_init() {
-	_surface = TTF_RenderText_Solid( NULL, _text.c_str(), _fontColor );
+	_surface = TTF_RenderText_Solid( _font, _text.c_str(), _fontColor );
 }
 
 void TextBox::draw() {
