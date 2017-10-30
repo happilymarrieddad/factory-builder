@@ -45,7 +45,7 @@ void MainMenu::handleEvent( SDL_Event* event ) {
 
 void MainMenu::_setDefaults() {
 	_background = NULL;
-	//_title = TextBox("Factory Builder");
+	_title = TextBox();
 }
 
 void MainMenu::_load() {

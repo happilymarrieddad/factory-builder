@@ -2,15 +2,25 @@
 
 TextBox::TextBox() {
 	_setDefaults();
+
+	setWidth(100);
+	setHeight(50);
+	setPosition(0,0);
+	setFont(TTF_OpenFont(DEFAULT_FONT_PATH.c_str(),28));
+	setColor(BLACK);
+	setFontColor(RED);
+	setText("TEST");
+
+	_init();
 }
 
-TextBox::TextBox(const String text,const GLint x = 0,const GLint y = 0,const GLint w = 100,const GLint h = 50,const SDL_Color color = BLACK,const SDL_Color fontColor = WHITE,const String fontPath = DEFAULT_FONT_PATH) {
+TextBox::TextBox(const String text,const GLint x,const GLint y,const GLint w,const GLint h,const SDL_Color color,const SDL_Color fontColor,const String fontPath) {
 	_setDefaults();
 
 	setWidth(w);
 	setHeight(h);
 	setPosition(x,y);
-	//setFont(TTF_OpenFont(fontPath.c_str(),28));
+	setFont(TTF_OpenFont(fontPath.c_str(),28));
 	setColor(color);
 	setFontColor(fontColor);
 	setText(text);
@@ -23,7 +33,7 @@ TextBox::~TextBox() {
 }
 
 void TextBox::_setDefaults() {
-	_font = NULL;
+	_font = TTF_OpenFont(DEFAULT_FONT_PATH.c_str(),28);
 }
 
 void TextBox::_free() {
@@ -42,7 +52,7 @@ void TextBox::_init() {
 }
 
 void TextBox::draw() {
-	_render(NULL,0.0,NULL,SDL_FLIP_NONE);
+	_render(NULL,0.0f,NULL,SDL_FLIP_NONE);
 }
 
 void TextBox::_render( SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE ) {

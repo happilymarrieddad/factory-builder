@@ -20,8 +20,10 @@ EXECUTABLE_PATH = dist/
 BUILD_COMMAND = make build 
 
 #This is the target that compiles our executable
-all : $(EXECUTABLE_PATH)$(EXECUTABLE)
-	$(BUILD_COMMAND) && $(EXECUTABLE_PATH)$(EXECUTABLE)
+all : $(OBJS)
+	$(BUILD_COMMAND)
+run : $(EXECUTABLE_PATH)
+	$(EXECUTABLE_PATH)$(EXECUTABLE)
 build: $(OBJS)
 	$(COMPILER) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(EXECUTABLE_PATH)$(EXECUTABLE)
 debug: $(OBJS)
