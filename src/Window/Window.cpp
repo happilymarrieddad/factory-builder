@@ -186,6 +186,7 @@ void Window::_render() {
 */
 void Window::_clear() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	SDL_SetRenderDrawColor( renderer,255,255,255,0 );
 }
 
 /*-------------------------------------------------------------------------
@@ -257,6 +258,17 @@ void Window::_eventHandler() {
 			
 			case SDL_QUIT:
 				RUNNING = GL_FALSE;
+				break;
+
+			case SDL_KEYDOWN:
+
+				switch(_sdlEvent.key.keysym.sym) {
+
+					case SDLK_ESCAPE:
+						RUNNING = GL_FALSE;
+						break;
+
+				}
 				break;
 
 		}

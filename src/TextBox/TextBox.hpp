@@ -1,12 +1,11 @@
 class TextBox {
 public:
 	TextBox();
-	TextBox(const String text,const GLint x,const GLint y);
+	TextBox(const String text,const SDL_Color color,GLint fontSize);
 	~TextBox();
 
 	// Methods
-	void init();
-	void draw();
+	void draw(const GLint x, const GLint y);
 
 	// Setters
 	void setText(String text) { _txt = text; }
@@ -16,12 +15,17 @@ public:
 	void setHeight(GLint h) { _h = h; }
 	void setColor(SDL_Color color) { _color = color; }
 	void setFontColor(SDL_Color color) { _fontColor = color; }
+	void setFontSize(GLint size) { _fontSize = size; }
+
+	// Getters
+	GLint getWidth() { return _w; }
+	GLint getHeight() { return _h; }
+	GLint getPosX() { return _x; }
+	GLint getPosY() { return _y; }
 
 private:
 	void _setDefaults();
 	void _free();
-	void _init();
-	void _render();
 
 	String _txt;
 	GLint _x;
@@ -31,4 +35,7 @@ private:
 	String _text;
 	SDL_Color _color;
 	SDL_Color _fontColor;
+	GLint _fontSize;
+
+	SDL_Surface* _surface = NULL;
 };

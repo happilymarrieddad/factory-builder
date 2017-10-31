@@ -27,6 +27,7 @@ using String = std::string;
 #include "Media/Media.cpp"
 #include "Timer/Timer.cpp"
 #include "TextBox/TextBox.cpp"
+#include "Button/Button.cpp"
 
 #include "Window/Window.cpp"
 
