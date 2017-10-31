@@ -209,6 +209,7 @@ void Window::_update() {
 |
 */
 void Window::_close() {
+	SDL_GL_DeleteContext( _glContext );
 	SDL_DestroyRenderer( renderer );
 	SDL_DestroyWindow( window );
 	renderer = NULL;
