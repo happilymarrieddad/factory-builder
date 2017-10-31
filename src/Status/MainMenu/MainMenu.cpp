@@ -16,7 +16,6 @@ MainMenu::~MainMenu() {
 }
 
 void MainMenu::run() {
-
 	if (IS_LOADING) {
 		_load();
 		IS_LOADING = GL_FALSE;
@@ -34,9 +33,6 @@ void MainMenu::handleEvent( SDL_Event* event ) {
             break;
 
         case SDL_MOUSEBUTTONUP:
-            // if (_mouseOnButton) {
-            //     return true;
-            // }
             break;
 
 	}
@@ -45,7 +41,10 @@ void MainMenu::handleEvent( SDL_Event* event ) {
 
 void MainMenu::_setDefaults() {
 	_background = NULL;
-	_title = TextBox();
+
+	// _title = TextBox("TEST",20,20);
+	// _title.setFontColor(RED);
+	// _title.init();
 }
 
 void MainMenu::_load() {
@@ -53,14 +52,14 @@ void MainMenu::_load() {
 		GLint x,y;
 		_background = _loadTextureFromFile("./include/images/main_menu_background.jpg",x,y);
 		if (_background == NULL) {
+			cout << "Failed to load texture" << endl;
 			RUNNING = GL_FALSE;
 		}
 	}
 }
 
 void MainMenu::_draw() {
-	// Render background to screen
 	SDL_RenderCopy(renderer,_background,NULL,NULL);
 
-
+	//_title.draw();
 }

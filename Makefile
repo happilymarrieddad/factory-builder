@@ -27,4 +27,6 @@ run : $(EXECUTABLE_PATH)
 build: $(OBJS)
 	$(COMPILER) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(EXECUTABLE_PATH)$(EXECUTABLE)
 debug: $(OBJS)
-	$(COMPILER) $(OBJS) $(DEBUG_FLAG) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(EXECUTABLE_PATH)$(DEBUG_EXECUTABLE) && $(DEBUGGER) $(EXECUTABLE_PATH)$(DEBUG_EXECUTABLE)
+	g++ src/main.cpp -g -std=c++14 -lGL -lGLU -lGLEW -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -o dist/debug
+debugrun: $(OBJS)
+	gdb ./dist/debug

@@ -1,6 +1,6 @@
 GLint DEFAULT_SCREEN_WIDTH = 1440;
 GLint DEFAULT_SCREEN_HEIGHT = 900;
-String DEFAULT_FONT_PATH = "../include/fonts/lazy.ttf";
+String DEFAULT_FONT_PATH = "./include/fonts/OpenSans-Bold.ttf";
 
 SDL_Renderer* renderer;
 SDL_Window* window;

@@ -7,7 +7,7 @@ DEBUGGER = dbg
 
 #COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
-COMPILER_FLAGS = -w -std=c++14
+COMPILER_FLAGS = -std=c++14
 DEBUG_FLAG = -g
 
 #LINKER_FLAGS specifies the libraries we're linking against
@@ -19,9 +19,5 @@ EXECUTABLE_PATH = ./
 BUILD_COMMAND = make build 
 
 #This is the target that compiles our executable
-all :
-	$(BUILD_COMMAND) && $(EXECUTABLE_PATH)$(EXECUTABLE)
-build: $(OBJS)
+all : $(OBJS)
 	$(COMPILER) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(EXECUTABLE)
-debug: $(OBJS)
-	$(COMPILER) $(OBJS) $(DEBUG_FLAG) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(EXECUTABLE)

@@ -29,6 +29,11 @@ public:
 	}
 
 	static void cleanup() {
+		SDL_DestroyRenderer(renderer);
+		SDL_DestroyWindow(window);
+		renderer = NULL;
+		window = NULL;
+
 		TTF_Quit();
 		IMG_Quit();
 		SDL_Quit();
