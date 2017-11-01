@@ -13,7 +13,8 @@ enum EXIT_STATUS
 
 enum STATUS
 {
-	MAIN_MENU = 0
+	MAIN_MENU = 0,
+	NEW_GAME_MENU = 1
 };
 
 enum ENVIRONMENTS

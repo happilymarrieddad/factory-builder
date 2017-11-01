@@ -43,4 +43,5 @@ private:
 
 	// Status'
 	MainMenu _mainMenu;
+	NewGameMenu _newGameMenu;
 };

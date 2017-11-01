@@ -1,4 +1,5 @@
 #include "../Status/MainMenu/MainMenu.cpp"
+#include "../Status/NewGameMenu/NewGameMenu.cpp"
 
 #include "Window.hpp"
 
@@ -35,6 +36,7 @@ void Window::_init(GLint width = DEFAULT_SCREEN_WIDTH,GLint height = DEFAULT_SCR
 	_capTimer = Timer();
 
 	_mainMenu = MainMenu(width,height);
+	_newGameMenu = NewGameMenu(width,height);
 
 	_env = PRODUCTION;
 }
@@ -172,6 +174,9 @@ void Window::_render() {
 			_mainMenu.run();
 			break;
 
+		case NEW_GAME_MENU:
+			_newGameMenu.run();
+			break;
 		
 	}
 
@@ -250,6 +255,10 @@ void Window::_eventHandler() {
 
 			case MAIN_MENU:
 				_mainMenu.handleEvent( &_sdlEvent );
+				break;
+
+			case NEW_GAME_MENU:
+				_newGameMenu.handleEvent( &_sdlEvent );
 				break;
 
 		}
