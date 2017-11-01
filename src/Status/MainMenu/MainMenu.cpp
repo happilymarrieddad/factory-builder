@@ -19,10 +19,10 @@ MainMenu::~MainMenu() {
 }
 
 void MainMenu::run() {
-	// if (IS_LOADING) {
-	// 	_load();
-	// 	IS_LOADING = GL_FALSE;
-	// }
+	if (IS_LOADING) {
+		_load();
+		IS_LOADING = GL_FALSE;
+	}
 
 	_draw();
 
@@ -92,8 +92,8 @@ void MainMenu::_draw() {
 
 	_title.draw(( _width / 2 ) - (_title.getWidth() / 2) ,100);
 	
-	// _startButton.draw(_width,_height);
-	// _loadButton.draw(_width,_height);
-	// _exitButton.draw(_width,_height);
+	_startButton.draw(_width,_height);
+	_loadButton.draw(_width,_height);
+	_exitButton.draw(_width,_height);
 
 }
